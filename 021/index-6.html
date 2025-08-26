@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html> 
+
+<body> 
+	<svg width="100%" height="400"> 
+		<defs> 
+            <filter id="convolve">
+                <feConvolveMatrix kernelMatrix="-7 -10 -15 -10 10 -1 0 0 -1" />
+
+            </filter>
+			 
+		</defs> 
+
+		<rect x="40" y="40" width="500" height="300" filter="url(#convolve)" style= 
+        "stroke: #000000; 
+        fill: darkgreen;" /> 
+
+		<g fill="#FFFFFF" 
+			font-size="10" font-family="Verdana"> 
+
+			<text x="200" y="200" filter="url(#convolve)"> 
+				Hello World
+			</text> 
+		</g> 
+
+        <image xlink:href="01.jpg" width="100%" height="100%" x="0" y="0" filter="url(#convolve)">
+
+        </image>
+	</svg> 
+</body> 
+
+</html> 
