@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feDisplacementMap</title>
+</head>
+<body>
+    <svg width="500" height="333" viewBox="0 0 500 333">
+        <filter id="displacementFilter">
+            <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="3" result="turbulence" />
+
+            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G"/>
+
+        </filter>
+
+
+
+        <!-- <circle cx="100" cy="100" r="100" stroke="green"
+        style="filter: url(#displacementFilter)" /> -->
+        <image xlink:href="01.jpg" width="100%" height="100%" x="0" y="0" filter="url(#displacementFilter)">
+
+        </image>
+    </svg>
+</body>
+</html>
