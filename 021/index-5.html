@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Filters</title>
+</head>
+
+<body>
+    <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="compositeFilter">
+            <feImage xlink:href="background.png" result="background"/>
+            <feImage xlink:href="foreground.png" result="foreground"/>
+            <feComposite operator="arithmetic" k1="0.1" k2="0.2" k3="0.3" k4="0.4" in="foreground" in2="background"/>
+          </filter>
+        </defs>
+        <image x="25" y="25" width="300" height="300" xlink:href="background.png" filter="url(#compositeFilter)"/>
+      </svg>
+      
+</body>
+
+</html>
