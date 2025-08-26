@@ -26,6 +26,20 @@
         .shape {
             fill: url(#l_g);
         }
+
+        @keyframes openYourHeart {
+          from {
+            r: 0;
+          }
+
+          to {
+            r: 45px;
+          }
+        }
+
+        #myClip circle {
+          animation: openYourHeart 2s infinite alternate;
+        }
     </style>
 </head>
 
@@ -58,7 +72,15 @@
                 <line style="fill:none;stroke:#FFE973;stroke-miterlimit:10;" x1="10" y1="0" x2="10" y2="100" />
             </g>
             <!-- grid end -->
-            <path d="M50.32,29.71c-7.19-14.5-30.54-10.34-30.54,8.32c0, 18.51,25.21,27.84,30.54,38.97c5.34-11.13,30.54-20.47,30.54-38.97 C80.86,19.39,57.52,15.2,50.32,29.71z"></path>
+            <clipPath id="myClip">
+                <circle cx="40" cy="35" r="35" />
+            </clipPath>
+
+            <path id="heart" d="M50.32,29.71c-7.19-14.5-30.54-10.34-30.54,8.32c0, 
+                18.51,25.21,27.84,30.54,38.97c5.34-11.13,30.54-20.47,30.54-38.97 
+                C80.86,19.39,57.52,15.2,50.32,29.71z"></path>
+
+            <use clip-path="url(#myClip)" xlink:href="#heart" fill="red" />
 
         </svg>
 
