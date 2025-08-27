@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>path tracking animation with visible path</title>
+    <style>
+        body{
+            background: #222;
+        }
+    </style>
+</head>
+<body>
+    <svg width="1920" height="1080" viewBox="0 0 1920 1080">
+
+        <!-- Define the path -->
+
+        <path id="myPath" d="M99.5,487.5c0,0,114-291,474-193s-413,98-155,379s891,37,891,37s649-223,356-374s-716,233-716,233" stroke="white" fill="transparent" />
+
+        <!-- Object to animate -->
+         <circle r="10" fill="red">
+            <animateMotion dur="10s" repeatCount="indefinite">
+                <mpath href="#myPath" />
+            </animateMotion>
+
+         </circle>
+
+    </svg>
+</body>
+</html>

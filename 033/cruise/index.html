@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #222;
+        }
+        .moving{
+            width: 100px;
+            height: 100px;
+            /* background: red;  */
+            /* background: url('airplane.png');  */
+             background: url('cruise.png'); 
+            background-size: cover;
+            position: absolute;
+            offset-path: path("M99.5,487.5c0,0,114-291,474-193s-413,98-155,379s891,37,891,37s649-223,356-374s-716,233-716,233");
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move{
+            0%{
+                offset-distance: 0%;
+            }
+            100%{
+                offset-distance: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="moving"></div>
+</body>
+</html>
