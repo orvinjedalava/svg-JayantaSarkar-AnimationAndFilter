@@ -30,6 +30,9 @@
             margin: 0 auto;
             border: 3px solid black;
         }
+        .rect {
+          transition: all 0.5s ease;
+        }
     </style>
 </head>
 
@@ -74,10 +77,30 @@
     </div>
 
     <script>
+        function animateRect(rect, targetWidth, targetHeight, targetY, duration = 500) {
+            const startWidth = parseFloat(rect.getAttribute('width'));
+            const startHeight = parseFloat(rect.getAttribute('height'));
+            const startY = parseFloat(rect.getAttribute('y'));
+            const startTime = performance.now();
+
+            function step(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                rect.setAttribute('width', startWidth + (targetWidth - startWidth) * progress);
+                rect.setAttribute('height', startHeight + (targetHeight - startHeight) * progress);
+                rect.setAttribute('y', startY + (targetY - startY) * progress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
         function scaleSize() {
-            document.getElementById("rect").setAttribute("width", "50");
-            document.getElementById("rect").setAttribute("height", "40");
-            document.getElementById("rect").setAttribute("y", "30");
+            const rect = document.getElementById("rect");
+            animateRect(rect, 50, 40, 30, 1000);
         }
     </script>
 </body>
