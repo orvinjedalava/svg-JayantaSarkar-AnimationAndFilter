@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feTurbulence</title>
+</head>
+<body>
+    <svg width="200" height="200">
+        <defs>
+          <filter id="turbulenceFilter">
+            <feTurbulence type="Turbulence" baseFrequency="0.05" numOctaves="2" seed="5"/>
+
+            <feDisplacementMap in2="turbulence" 
+            in="SourceGraphic" scale="50" 
+            xChannelSelector="B"
+            yChannelSelector="B" />
+          </filter>
+        </defs>
+        <rect width="200" height="200" fill="red" filter="url(#turbulenceFilter)" />
+      </svg>
+</body>
+</html>
