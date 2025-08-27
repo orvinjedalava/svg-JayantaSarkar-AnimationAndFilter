@@ -26,10 +26,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script>
         let el = document.getElementById('trubulense');
-        // let tl = new TimelineMax({ paused: true });
-        // let tl = new TimelineMax({ repeat: -1, yoyo: true });
+        // Ensure image starts flat (no turbulence)
+        TweenMax.set(el, { attr: { baseFrequency: '0 0' } });
         let tl = new TimelineMax({ repeat: -1 });
-        tl.to(el, 3, { attr: { baseFrequency: '0 0' } }, 2);
+        tl.to(el, 3, { attr: { baseFrequency: '0.02 0.03' } })
+            .to(el, 3, { attr: { baseFrequency: '0 0' } });
         tl.play();
     </script>
 
